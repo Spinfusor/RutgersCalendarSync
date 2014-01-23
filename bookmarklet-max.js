@@ -11,12 +11,12 @@ javascript: (function () {
         checkReady(callback);
       }, 100);
     }
-  };f
+  };
   checkReady(function ($) {
     $(function () {
       var courses = $('div.ca,div.cd,div.b,div.nk,div.l,div.cm,div.u');
 
-      function bake(start, end, day, name, cherry, semester) {
+      function bake(start, end, day, name, cherry, semester, location) {
         var cheesecake = "\nBEGIN:VEVENT\nUID:" + cherry.toString() + "\nDTSTAMP:20130331T044700Z\nORGANIZER;CN=Rutgers:MAILTO:webreg@rutgers.edu";
         var date = "";
         var endDate = "";
@@ -74,7 +74,7 @@ javascript: (function () {
         }
         start = "DTSTART:".concat(date.concat(start));
         end = "DTEND:".concat(date.concat(end));
-        cheesecake = cheesecake.concat("\n" + start + "\n" + end + "\n" + "SUMMARY:" + name + "\nRRULE:FREQ=WEEKLY;UNTIL=" + endDate + "010101Z;BYDAY=" + day + "\nEND:VEVENT");
+        cheesecake = cheesecake.concat("\n" + start + "\n" + end + "\n" + "SUMMARY:" + name + "\nLOCATION:" + location + "\nRRULE:FREQ=WEEKLY;UNTIL=" + endDate + "010101Z;BYDAY=" + day + "\nEND:VEVENT");
         return cheesecake;
       }
       $('tr td').each(function (index, item) {
@@ -110,7 +110,8 @@ javascript: (function () {
         var class_name = $(course).find("b").html();
         end = time_converter(end);
         console.log(end);
-        var pumpkin = bake(start, end, class_day, class_name, number, choice);
+        var class_location = $(course).find("a").html().replace(/\s+/g,"");
+        var pumpkin = bake(start, end, class_day, class_name, number, choice, class_location);
         number++;
         output += pumpkin;
         console.log("Pumpkin: " + pumpkin);
