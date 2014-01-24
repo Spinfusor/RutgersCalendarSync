@@ -108,6 +108,7 @@ javascript: (function () {
         start = time_converter(start);
         var end = class_time.split(" - ")[1];
         var class_name = $(course).find("b").html();
+        class_name = class_name.replace(/\w*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}).replace("&Amp;"," & ");
         end = time_converter(end);
         console.log(end);
         var class_location = $(course).find("a").html().replace(/\s+/g,"");
