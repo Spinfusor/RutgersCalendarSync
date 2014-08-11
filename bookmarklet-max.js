@@ -20,41 +20,7 @@ javascript: (function () {
         var cheesecake = "\nBEGIN:VEVENT\nUID:" + cherry.toString() + "\nDTSTAMP:20130331T044700Z\nORGANIZER;CN=Rutgers:MAILTO:webreg@rutgers.edu";
         var date = "";
         var endDate = "";
-        if (semester === null || semester === 2) {
-          if (day == "TU") {
-            date = "20140527T";
-            endDate = "20140812T";
-          } else if (day == "WE") {
-            date = "20140528T";
-            endDate = "20140813T";
-          } else if (day == "TH") {
-            date = "20140529T";
-            endDate = "20140807T";
-          } else if (day == "FR") {
-            date = "20140530T";
-            endDate = "20140808T";
-          } else if (day == "MO") {
-            date = "20140602T";
-            endDate = "20140811T";
-          }
-        } else if (semester === 1) {
-          if (day == "TU") {
-            date = "20140121T";
-            endDate = "20140429T";
-          } else if (day == "WE") {
-            date = "20140122T";
-            endDate = "20140430T";
-          } else if (day == "TH") {
-            date = "20140123T";
-            endDate = "20140501T";
-          } else if (day == "FR") {
-            date = "20140124T";
-            endDate = "20140502T";
-          } else if (day == "MO") {
-            date = "20140127T";
-            endDate = "20140505T";
-          }
-        } else {
+        if (semester === 1 || semester === null) {
           if (day == "TU") {
             date = "20140902T";
             endDate = "20141209T";
@@ -70,6 +36,40 @@ javascript: (function () {
           } else if (day == "MO") {
             date = "20140908T";
             endDate = "20141208T";
+          }
+        } else if (semester === 2) {
+          if (day == "TU") {
+            date = "20150120T";
+            endDate = "20150428T";
+          } else if (day == "WE") {
+            date = "20150121T";
+            endDate = "20150429T";
+          } else if (day == "TH") {
+            date = "20150122T";
+            endDate = "20150430T";
+          } else if (day == "FR") {
+            date = "20150123T";
+            endDate = "20150501T";
+          } else if (day == "MO") {
+            date = "20150126T";
+            endDate = "20150504T";
+          }
+        } else {
+          if (day == "TU") {
+            date = "20150526T";
+            endDate = "20150811T";
+          } else if (day == "WE") {
+            date = "20150527T";
+            endDate = "20150812T";
+          } else if (day == "TH") {
+            date = "20150528T";
+            endDate = "20150806T";
+          } else if (day == "FR") {
+            date = "20150529T";
+            endDate = "20150807T";
+          } else if (day == "MO") {
+            date = "20150601T";
+            endDate = "20150810T";
           }
         }
         start = "DTSTART:".concat(date.concat(start));
