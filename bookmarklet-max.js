@@ -83,10 +83,10 @@ javascript: (function () {
       var output = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//hacksw/handcal//NONSGML v1.0//EN";
       var number = Math.floor((Math.random() * 100) + 1);
       var choice = $('h2').text().split("»")[1].split(" ")[1];
-      if (choice === "Summer") {
-        choice = 2;
-      } else if (choice === "Spring") {
+      if (choice === "Fall") {
         choice = 1;
+      } else if (choice === "Spring") {
+        choice = 2;
       } else {
         choice = 3;
       }
